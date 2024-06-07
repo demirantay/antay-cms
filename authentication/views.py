@@ -83,24 +83,3 @@ def logout(request):
     return HttpResponseRedirect("/")
 
 
-def dashboard(request):
-    """this is the main dashboard page when you enter the panel
-    """
-    # Get the current users
-    current_basic_user = get_current_user(request, User, ObjectDoesNotExist)
-
-    current_basic_user_profile = get_current_user_profile(
-        request,
-        User,
-        BasicUserProfile,
-        ObjectDoesNotExist
-    )
-
-    data = {
-        'current_basic_user': current_basic_user,
-        'current_basic_user_profile': current_basic_user_profile,
-    }
-    if current_basic_user == None:
-        return HttpResponseRedirect("/auth/login/")
-    else:
-        return render(request, "authentication/dashboard.html", data)
