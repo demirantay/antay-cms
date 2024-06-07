@@ -1,0 +1,39 @@
+{% extends 'basic_base.html' %}
+{% load static %}
+
+{% block css_link %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/authentication/login.css' %}" />
+{% endblock %}
+
+{% block content %}
+
+<!-- left mural img -->
+<div class="left-login-box">
+    <a href="#"><img src="{% static 'branding/logo.png' %}" alt="logo"></a>
+
+    {% if invalid_credentials == True %}
+        <p style="color:#CB4335; margin-top:-15px">Invalid Credentials!</p>
+    {% endif %}
+
+    <form action="{% url 'login_page' %}" method="POST">
+        {% csrf_token %}
+        <input type="text" placeholder="Username" name="username">
+        <input type="password" placeholder="Password" name="password">
+        <a href="#" id="forgot-pass-btn">Forgot Password?</a>
+        <input type="submit" value="Login" class="login-submit" name="login_form_submit_btn">
+    </form>
+</div>
+
+<!-- contact form -->
+<div class="right-login-box" style="background-image: url('{% static 'images/authentication/auth-1.jpg' %}');">
+
+</div>
+
+<script>
+    document.getElementById("forgot-pass-btn").onclick = function(e) {
+        e.preventDefault();
+        alert("Please contact Demir, he will reset it for you!");
+    }
+</script>
+
+{% endblock %}

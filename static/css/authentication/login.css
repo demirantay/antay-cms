@@ -1,0 +1,207 @@
+body {
+    font-family: 'Roboto';
+}
+
+.left-login-box {
+    position: fixed;
+    top:0;
+    left:0;
+    bottom:0;
+    width: 45%;
+    background-color: #121212;
+
+    padding-left: 9%;
+    padding-top: 25vh;
+}
+
+.left-login-box img {
+    height: 65px;
+    margin-bottom: 40px;
+}
+
+.left-login-box form {
+    width: 60%;
+}
+
+.left-login-box form input {
+    width: 100%;
+    display: block;
+    padding: 15px 10px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    background-color: #2A2A2A;
+    border: 1px solid #595959;
+    font-size: 16px;
+    color: #2797FE;
+}
+
+.left-login-box form input:focus {
+    outline: none;
+    border-color: #2797FE;
+}
+
+.left-login-box form a {
+    display: inline-block;
+    float: left;
+    color: #2797FE;
+    margin-top: 15px;
+    text-decoration: none;
+}
+
+.left-login-box form a:hover {
+    color: #2471A3;
+    text-decoration: underline;
+}
+
+.login-submit {
+    width: 50% !important;
+    display: inline-block !important;
+    float: right;
+    margin-right: -20px;
+    background-color: #2797FE !important;
+    color: white !important;
+    border: 1px solid #2797FE !important;
+}
+
+.login-submit:hover {
+    background-color: #2471A3 !important;
+    border-color: #2471A3 !important;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+
+.right-login-box {
+    position: fixed;
+    top:0;
+    right:0;
+    bottom:0;
+    width: 55%;
+    background-color: blue;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Mobile Small  --------------------------------------------------------- */
+@media screen and (min-width: 0px) and (max-width: 320px) {
+    .left-login-box {
+        position: fixed;
+        top:0;
+        left:0;
+        bottom:0;
+        right:0;
+        width: 100% !important;
+
+        padding-left: 10%;
+        padding-top: 25vh;
+    }    
+
+    .right-login-box {
+        display: none;
+    }
+
+    .left-login-box form {
+        width: 75%;
+    }
+
+}
+
+
+/* Mobile Medium  --------------------------------------------------------- */
+@media screen and (min-width: 321px) and (max-width: 375px) {
+    .left-login-box {
+        position: fixed;
+        top:0;
+        left:0;
+        bottom:0;
+        right:0;
+        width: 100% !important;
+
+        padding-left: 10%;
+        padding-top: 25vh;
+    }    
+
+    .right-login-box {
+        display: none;
+    }
+
+    .left-login-box form {
+        width: 75%;
+    }
+
+}
+
+
+/* Mobile Large - --------------------------------------------------------- */
+@media screen and (min-width: 376px) and (max-width: 425px) {
+    .left-login-box {
+        position: fixed;
+        top:0;
+        left:0;
+        bottom:0;
+        right:0;
+        width: 100% !important;
+
+        padding-left: 10%;
+        padding-top: 25vh;
+    }    
+
+    .right-login-box {
+        display: none;
+    }
+
+    .left-login-box form {
+        width: 75%;
+    }
+
+
+}
+
+
+/* Tablet - --------------------------------------------------------------- */
+@media screen and (min-width: 426px) and (max-width: 768px) {
+
+    .left-login-box {
+        position: fixed;
+        top:0;
+        left:0;
+        bottom:0;
+        right:0;
+        width: 100% !important;
+
+        padding-left: 20%;
+        padding-top: 25vh;
+    }    
+
+    .right-login-box {
+        display: none;
+    }
+
+}
+
+
+/* Laptop ------------------------------------------------------------------ */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .left-login-box form {
+        width: 75%;
+    }
+    
+    .left-login-box {
+        padding-left: 5%;
+        padding-top: 25vh;
+    }
+}
+
+
+/* Laptop Large -------------------------------------------------------------*/
+@media screen and (min-width: 1025px) and (max-width: 1440px) {
+  /* nothing for now */
+}
+
+
+/* 4K Large Desktop ------------------------------------------------------- */
+@media screen and (min-width: 1441px) {
+
+}
