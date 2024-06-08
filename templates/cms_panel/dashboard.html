@@ -1,1 +1,13 @@
-dashboard
+{% extends 'panel_base.html' %}
+{% load static %}
+
+{% block css_link %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/authentication/dashboard.css' %}" />
+{% endblock %}
+
+{% block content %}
+
+antay CMS admin dashboard
+
+
+{% endblock %}

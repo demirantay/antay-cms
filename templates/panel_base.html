@@ -1,0 +1,134 @@
+{% load static %}
+
+<!doctype html>
+<html>
+
+<head>
+    <title>Antay</title>
+
+    <!-- Meta Info -->
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="demir antay" />
+
+    <!-- FAVICON -->
+    <link rel="icon" href="{% static 'branding/logo.png' %}" />
+
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;400;700&display=swap" rel="stylesheet">
+
+    <!-- FONT AWSOME -->
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <!-- REMIX ICON -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+    <!-- BASE CSS LINKS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bases/panel_base.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/component_lib/elements.css' %}" />
+
+    <!-- JQUERY CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+    {% block css_link %}
+
+    {% endblock %}
+
+</head>
+
+<body>
+
+    <!-- left menu -->
+    <div class="left-menu">
+        <a href="#"><img src="{% static 'branding/logo.png' %}" alt="logo" class="menu-logo"></a>
+
+        <p class="left-menu-divide-p">Menu</p>
+        <a href="{% url 'panel_dashboard' %}"><i class="ri-home-line"></i> Dashboard</a>
+        <a href="#"><i class="ri-edit-box-line"></i> Posts</a>
+        <a href="#"><i class="ri-image-line"></i> Media</a>
+        <a href="#"><i class="ri-pages-line"></i> Pages</a>
+        <a href="#"><i class="ri-chat-4-line"></i> Comments</a>
+
+        <a href="#"><i class="ri-brush-2-line"></i> Appearance</a>
+        <a href="#"><i class="ri-plug-line"></i> Plugins</a>
+        <a href="#"><i class="ri-user-line"></i> Users</a>
+
+        <div class="left-menu-footer">
+            <a href="#"><i class="ri-settings-4-line"></i> Settings</a>
+            <a href="{% url 'logout' %}"><i class="ri-logout-box-line"></i> Logout</a>   
+        </div>
+    </div>
+
+    <!-- hidden mobile menu -->
+    <div class="mobile-temp-menu">
+        <button id="mobile-open-btn"><i class="ri-menu-line"></i></button>
+    </div>
+
+    <div id="hidden-mobile-bg-id" class="hidden-mobile-menu-bg"></div>
+    <div id="hidden-mobile-id" class="hidden-mobile-menu">
+        <button id="mobile-close-btn"><i class="ri-close-line"></i></button>
+
+        <a href="#"><img src="{% static 'branding/logo.png' %}" alt="logo" class="menu-logo"></a>
+        <a href="{% url 'panel_dashboard' %}"><i class="ri-home-line"></i> Dashboard</a>
+        <a href="#"><i class="ri-list-unordered"></i> Daily Updates</a>
+        <!--<a href=""><i class="ri-bookmark-line"></i> Courses <i class="ri-arrow-down-s-line link-arrow"></i></a>-->
+        <a href="#"><i class="ri-user-line"></i> Profile</a>
+        <!--<a href="#"><i class="ri-settings-4-line"></i> Settings</a>-->
+        <a href="{% url 'logout' %}"><i class="ri-logout-box-line"></i> Logout</a>
+    </div>
+
+    <!-- right content -->
+    <div class="client-content-wrapper">
+        {% block content %}
+
+        {% endblock %}
+    </div>
+
+    <script>
+
+        // dropdown button logic
+        /* When the user clicks on the button, 
+        stoggle between hiding and showing the dropdown content */
+        function myFunction() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function (event) {
+            if (!event.target.matches('.dropbtn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+
+        // hidden menu toggle logic
+        document.getElementById("mobile-open-btn").onclick = function () {
+            document.getElementById("hidden-mobile-bg-id").style.display = "block";
+            document.getElementById("hidden-mobile-id").style.display = "block";
+        }
+
+        document.getElementById("mobile-close-btn").onclick = function () {
+            document.getElementById("hidden-mobile-bg-id").style.display = "none";
+            document.getElementById("hidden-mobile-id").style.display = "none";
+        }
+
+    </script>
+
+</body>
+
+</html>

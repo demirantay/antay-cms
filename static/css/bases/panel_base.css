@@ -1,0 +1,329 @@
+/*
+
+Color Palette
+-------
+
+black: #1f1f1f
+blue hover: #c6dbff
+blue: #3c81f6
+graying: #F0F1F6    (bg, .etc.)
+white: white
+
+
+*/
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background-color: #F0F1F6;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+/* ---------------------- left menu --------------------------- */
+.left-menu {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 220px;
+    border-right: 1px solid white;
+    background-color: white;
+    border-radius: 20px;
+    margin-top: 1.8vh;
+    margin-bottom: 1.8vh;
+    margin-left: 15px;
+}
+
+.left-menu-footer {
+    position: absolute;
+    bottom: 0;
+    width:100%;
+    margin-bottom: 10px;   
+}
+
+
+.menu-logo {
+    margin-top: 20px;
+    height: 40px;
+}
+
+.left-menu a {
+    display: block;
+    text-decoration: none;
+    color: #1f1f1f;
+    font-size: 16px;
+    padding: 15px 10px;
+    margin-left: 8px;
+    margin-right: 8px;
+    border-radius: 10px;
+}
+
+.left-menu a:hover {
+    transition: 0.2s;
+    color: #303030;
+    background-color: #c6dbff;
+}
+
+.left-menu a i {
+    padding: 0px;
+    display: inline-block;
+    margin: 0px;
+    vertical-align: middle;
+    margin-top: -4px;
+    font-size: 20px;
+    margin-right: 5px;
+}
+
+.left-menu-divide-p {
+    font-size: 14px;
+    color: #909497;
+    padding: 0px 20px;
+    margin-top: 20px;
+}
+
+.left-menu button {
+    display: block;
+    text-decoration: none;
+    color: gray;
+    font-size: 16px;
+    padding: 15px 20px;
+    width: 100%;
+}
+
+.left-menu button:hover {
+    transition: 0.2s;
+    color: #303030;
+    background-color: #EAEDED;
+}
+
+.left-menu button i {
+    padding: 0px;
+    display: inline-block;
+    margin: 0px;
+    vertical-align: middle;
+    margin-top: -4px;
+    font-size: 20px;
+    margin-right: 5px;
+}
+
+.left-menu-active {
+    color: #303030 !important;
+}
+
+.link-arrow {
+    float: right;
+    margin-top: 0px !important;
+    margin-right: -10px !important;
+    z-index: 1 !important;
+    font-size: 16px !important;
+}
+
+.dropbtn {
+    display: block;
+    text-decoration: none;
+    color: gray;
+    font-size: 16px;
+    padding: 15px 20px;
+    background-color: transparent;
+    border: 1px solid transparent;
+
+    display: block;
+    text-decoration: none;
+    color: gray;
+    font-size: 16px;
+    padding: 15px 20px;
+    width: 100%;
+    text-align: left;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+    background-color: #EAEDED;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: block;
+}
+
+.dropdown-content {
+    display: none;
+    position: relative;
+    background-color: #f1f1f1;
+    min-width: 100%;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.show {display: block;}
+
+
+
+/* --------------------- mobile menu --------------- */
+.mobile-temp-menu {
+    display: none;
+    border-bottom: 1px solid #E0E0E0;
+    position: fixed;
+    left:0;
+    top:0;
+    right:0;
+    height: 45px;
+    z-index: 999 !important;
+    background-color: white;
+}
+
+.mobile-temp-menu button {
+    font-size: 26px;
+    border: 1px solid transparent;
+    background-color: transparent;
+    margin-top: 8px;
+    margin-left: 10px;
+}
+
+.hidden-mobile-menu-bg {
+    position: fixed;
+    z-index: 99999;
+    background-color: black;
+    opacity: 0.2;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+    display: none;
+}
+
+.hidden-mobile-menu {
+    display: none;
+    position: fixed;
+    z-index: 99999999;
+    background-color: white;
+    top:0;
+    left:0;
+    bottom:0;
+    width: 70%;
+    transition: 0.2s !important;
+}
+
+#mobile-close-btn {
+    font-size: 28px !important;
+    border: 1px solid transparent !important;
+    background-color: transparent !important;
+    margin-top: 8px !important;
+    margin-left: 10px !important; 
+}
+
+.hidden-mobile-menu a {
+    display: block;
+    text-decoration: none;
+    color: gray;
+    font-size: 16px;
+    padding: 15px 20px;
+}
+
+.hidden-mobile-menu a:hover {
+    transition: 0.2s;
+    color: #303030;
+    background-color: #EAEDED;
+}
+
+.hidden-mobile-menu a i {
+    padding: 0px;
+    display: inline-block;
+    margin: 0px;
+    vertical-align: middle;
+    margin-top: -4px;
+    font-size: 20px;
+    margin-right: 5px;
+}
+
+
+/* ----------------------- right content ------------------------- */
+.client-content-wrapper {
+    margin-left: 245px; /* based on the width of menu */
+}
+
+
+/* Mobile Small  --------------------------------------------------------- */
+@media screen and (min-width: 0px) and (max-width: 320px) {
+    .left-menu {
+        display: none;
+    }
+
+    .mobile-temp-menu {
+        display: block;
+    }
+
+    .client-content-wrapper {
+        margin-left: 0px; /* based on the width of menu */
+        margin-top: 45px; /* based on the height of hidden temp menu */
+    }
+}
+
+
+/* Mobile Medium  --------------------------------------------------------- */
+@media screen and (min-width: 321px) and (max-width: 375px) {
+    .left-menu {
+        display: none;
+    }
+
+    .mobile-temp-menu {
+        display: block;
+    }
+
+    .client-content-wrapper {
+        margin-left: 0px; /* based on the width of menu */
+        margin-top: 45px; /* based on the height of hidden temp menu */
+    }
+}
+
+
+/* Mobile Large - --------------------------------------------------------- */
+@media screen and (min-width: 376px) and (max-width: 425px) {
+    .left-menu {
+        display: none;
+    }
+
+    .mobile-temp-menu {
+        display: block;
+    }
+
+    .client-content-wrapper {
+        margin-left: 0px; /* based on the width of menu */
+        margin-top: 45px; /* based on the height of hidden temp menu */
+    }
+    
+}
+
+
+/* Tablet - --------------------------------------------------------------- */
+@media screen and (min-width: 426px) and (max-width: 768px) {
+    .left-menu {
+        display: none;
+    }
+
+    .mobile-temp-menu {
+        display: block;
+    }
+
+    .client-content-wrapper {
+        margin-left: 0px; /* based on the width of menu */
+        margin-top: 45px; /* based on the height of hidden temp menu */
+    }
+
+}
+
+
+/* Laptop ------------------------------------------------------------------ */
+@media screen and (min-width: 769px) and (max-width: 1024px) {}
+
+/* Laptop Large -------------------------------------------------------------*/
+@media screen and (min-width: 1025px) and (max-width: 1440px) {}
+
+/* 4K Large Desktop ------------------------------------------------------- */
+@media screen and (min-width: 1441px) {}

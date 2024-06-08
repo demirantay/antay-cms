@@ -57,7 +57,7 @@ def login_page(request):
                     request.session["basic_user_email"] = user.email
                     request.session["basic_user_username"] = user.username
                     request.session["basic_user_logged_in"] = True
-                    return HttpResponseRedirect("/progress/")
+                    return HttpResponseRedirect("/cms-admin/dashboard/")
                 else:
                     invalid_credentials = True
 
