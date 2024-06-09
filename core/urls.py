@@ -8,6 +8,7 @@ urlpatterns = [
     path("", include("authentication.urls")),
     path("", include("home.urls")),
     path("", include("cms_panel.urls")),
+    path("", include("cms_posts.urls")),
 ]
 
 if settings.DEBUG:
