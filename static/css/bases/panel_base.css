@@ -367,6 +367,10 @@ body {
         margin-left: 0px; /* based on the width of menu */
         margin-top: 45px; /* based on the height of hidden temp menu */
     }
+
+    .client-content-top-menu {
+        display: none;
+    }
 }
 
 
@@ -383,6 +387,10 @@ body {
     .client-content-wrapper {
         margin-left: 0px; /* based on the width of menu */
         margin-top: 45px; /* based on the height of hidden temp menu */
+    }
+
+    .client-content-top-menu {
+        display: none;
     }
 }
 
@@ -401,6 +409,10 @@ body {
         margin-left: 0px; /* based on the width of menu */
         margin-top: 45px; /* based on the height of hidden temp menu */
     }
+
+    .client-content-top-menu {
+        display: none;
+    }
     
 }
 
@@ -418,6 +430,10 @@ body {
     .client-content-wrapper {
         margin-left: 0px; /* based on the width of menu */
         margin-top: 45px; /* based on the height of hidden temp menu */
+    }
+
+    .client-content-top-menu {
+        display: none;
     }
 
 }
