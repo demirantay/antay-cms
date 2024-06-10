@@ -2,12 +2,65 @@
 {% load static %}
 
 {% block css_link %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/authentication/dashboard.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/cms_posts/cms_posts.css' %}" />
 {% endblock %}
 
 {% block content %}
 
-Landing page
+<div class="cms_all_posts_wrapper">
+    <h3>Posts</h3>
+
+    <a href="">Add New Post</a>
+    
+    <table>
+        <tr>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Categories</th>
+          <th>Date</th>
+          <th>Options</th>
+        </tr>
+        <tr>
+          <td>Top 10 Exersices for Mental Health</td>
+          <td>Maria Anders</td>
+          <td>Sport</td>
+          <td>12 Jun, 2024</td>
+          <td><a href="">Edit</a> <a href="">View</a> <a href="">Trash</a></td>
+        </tr>
+        <tr>
+            <td>Top 10 Exersices for Mental Health</td>
+            <td>Maria Anders</td>
+            <td>Sport</td>
+            <td>12 Jun, 2024</td>
+            <td><a href="">Edit</a> <a href="">View</a> <a href="">Trash</a></td>
+          </tr>
+          <tr>
+            <td>Top 10 Exersices for Mental Health</td>
+            <td>Maria Anders</td>
+            <td>Sport</td>
+            <td>12 Jun, 2024</td>
+            <td><a href="">Edit</a> <a href="">View</a> <a href="">Trash</a></td>
+          </tr>
+          <tr>
+            <td>Top 10 Exersices for Mental Health</td>
+            <td>Maria Anders</td>
+            <td>Sport</td>
+            <td>12 Jun, 2024</td>
+            <td><a href="">Edit</a> <a href="">View</a> <a href="">Trash</a></td>
+          </tr>
+          <tr>
+            <td>Top 10 Exersices for Mental Health</td>
+            <td>Maria Anders</td>
+            <td>Sport</td>
+            <td>12 Jun, 2024</td>
+            <td><a href="">Edit</a> <a href="">View</a> <a href="">Trash</a></td>
+          </tr>
+        
+      </table>
+
+</div>
+
+
 
 
 {% endblock %}
