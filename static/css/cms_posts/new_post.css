@@ -1,0 +1,57 @@
+.cms_create_post_wrapper {
+    margin-left: 10px;
+}
+
+.cms_create_post_wrapper h3 {
+
+}
+
+.cms_create_post_wrapper form {
+    width: 55%;
+    margin: 0 auto;
+}
+
+#title-input {
+    display: block;
+    margin-top: 40px;
+    background-color: transparent;
+    font-weight: 700;
+    font-size: 30px;
+    border: 1px solid transparent;
+    width: 100%;
+    margin-bottom: 20px;
+    
+}
+
+#title-input:focus {
+    outline: none;
+}
+
+.cms_create_post_wrapper form textarea {
+    display: block;
+    background-color: transparent;
+    font-size: 16px;
+    border: 1px solid transparent;
+    width: 100%;
+    margin-bottom: 20px;
+    
+    resize: none;
+    overflow: hidden;
+    min-height: 50px;
+
+}
+
+.cms_create_post_wrapper form textarea:focus {
+    outline: none;
+}
+
+.save_draft_btn {
+    display: inline-block !important;
+    width: auto !important;
+    margin-right: 10px;
+}
+
+.publish_btn {
+    display: inline-block !important;
+    width: auto !important;
+}

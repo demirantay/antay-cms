@@ -167,10 +167,15 @@ body {
 .client-content-top-menu {
     background-color: white;
     border-radius: 11px;
-    width: 98.5%;
     margin-top: 2vh;
     margin-bottom: 20px;
     height: 55px;
+    position: fixed;
+    margin-left: 250px;
+    right: 0;
+    top: 0;
+    left: 0;
+    margin-right: 20px;
 }
 
 .client-content-top-breadcrumb {
@@ -350,6 +355,7 @@ body {
 /* ----------------------- right content ------------------------- */
 .client-content-wrapper {
     margin-left: 250px; /* based on the width of menu */
+    margin-top: 90px;
 }
 
 

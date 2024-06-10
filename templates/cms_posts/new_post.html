@@ -1,0 +1,34 @@
+{% extends 'panel_base.html' %}
+{% load static %}
+
+{% block css_link %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/cms_posts/new_post.css' %}" />
+{% endblock %}
+
+{% block content %}
+
+<div class="cms_create_post_wrapper">
+    <form>
+        <div class="post-operations">
+
+        </div>
+
+        <input class="save_draft_btn" type="submit" value="Save Draft">
+        <a href="">Publish</a>
+        <input id="title-input" type="text" placeholder="Add title">
+        <textarea placeholder="Type in your post ..." oninput="auto_grow(this)"></textarea>
+    </form>
+</div>
+
+<script>
+    // auto growth on scroll while writing for textarea
+    function auto_grow(element) {
+        element.style.height = "5px";
+        element.style.height = (element.scrollHeight) + "px";
+    }
+</script>
+
+
+
+
+{% endblock %}

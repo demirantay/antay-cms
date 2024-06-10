@@ -36,3 +36,30 @@ def cms_posts_landing(request):
         return HttpResponseRedirect("/auth/login/")
     else:
         return render(request, "cms_posts/posts_landing.html", data)
+    
+
+
+def cms_posts_create(request):
+    """cms panel posts create page
+    """
+    # Get the current users
+    current_basic_user = get_current_user(request, User, ObjectDoesNotExist)
+
+    current_basic_user_profile = get_current_user_profile(
+        request,
+        User,
+        BasicUserProfile,
+        ObjectDoesNotExist
+    )
+
+    # get all posts
+
+
+    data = {
+        'current_basic_user': current_basic_user,
+        'current_basic_user_profile': current_basic_user_profile,
+    }
+    if current_basic_user == None:
+        return HttpResponseRedirect("/auth/login/")
+    else:
+        return render(request, "cms_posts/new_post.html", data)
