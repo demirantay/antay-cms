@@ -8,6 +8,7 @@ from django.core.files import File
 from django.contrib.auth.models import User
 
 # My Module Imports
+from .models import BlogPost
 from authentication.models import BasicUserProfile
 from utils.session_utils import get_current_user, get_current_user_profile
 
@@ -26,11 +27,15 @@ def cms_posts_landing(request):
     )
 
     # get all posts
-
+    try:
+        all_posts = BlogPost.objects.all().order_by("-id")
+    except ObjectDoesNotExist:
+        all_posts = None
 
     data = {
         'current_basic_user': current_basic_user,
         'current_basic_user_profile': current_basic_user_profile,
+        'all_posts': all_posts,
     }
     if current_basic_user == None:
         return HttpResponseRedirect("/auth/login/")
@@ -52,8 +57,6 @@ def cms_posts_create(request):
         ObjectDoesNotExist
     )
 
-    # get all posts
-
 
     data = {
         'current_basic_user': current_basic_user,
@@ -63,3 +66,18 @@ def cms_posts_create(request):
         return HttpResponseRedirect("/auth/login/")
     else:
         return render(request, "cms_posts/new_post.html", data)
+    
+
+def blog_single_view(request, post_id):
+    """blog post single view
+    """
+    # get current blog post
+    try:
+        current_post = BlogPost.objects.get(id=post_id)
+    except ObjectDoesNotExist:
+        current_post = None
+
+    data = {
+        "current_post": current_post,
+    }
+    return render(request, "cms_posts/blog_single_view.html", data)

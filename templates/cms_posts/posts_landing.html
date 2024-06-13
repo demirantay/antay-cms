@@ -20,6 +20,7 @@
           <th>Date</th>
           <th>Options</th>
         </tr>
+        <!--
         <tr>
           <td>Top 10 Exersices for Mental Health</td>
           <td>Maria Anders</td>
@@ -27,34 +28,17 @@
           <td>12 Jun, 2024</td>
           <td><a href="">Edit</a> <a href="">View</a> <a href="">Trash</a></td>
         </tr>
-        <tr>
-            <td>Top 10 Exersices for Mental Health</td>
-            <td>Maria Anders</td>
-            <td>Sport</td>
-            <td>12 Jun, 2024</td>
-            <td><a href="">Edit</a> <a href="">View</a> <a href="">Trash</a></td>
-          </tr>
+        -->
+       
+        {% for post in all_posts %}
           <tr>
-            <td>Top 10 Exersices for Mental Health</td>
-            <td>Maria Anders</td>
-            <td>Sport</td>
-            <td>12 Jun, 2024</td>
-            <td><a href="">Edit</a> <a href="">View</a> <a href="">Trash</a></td>
+            <td>{{ post.title|truncatechars:20 }}</td>
+            <td>{{ post.author.full_name }}</td>
+            <td>{{ post.category }}</td>
+            <td>{{ post.creation_date }}</td>
+            <td><a href="">Edit</a> <a href="{% url 'blog_single_view' post.id %}">View</a> <a href="">Trash</a></td>
           </tr>
-          <tr>
-            <td>Top 10 Exersices for Mental Health</td>
-            <td>Maria Anders</td>
-            <td>Sport</td>
-            <td>12 Jun, 2024</td>
-            <td><a href="">Edit</a> <a href="">View</a> <a href="">Trash</a></td>
-          </tr>
-          <tr>
-            <td>Top 10 Exersices for Mental Health</td>
-            <td>Maria Anders</td>
-            <td>Sport</td>
-            <td>12 Jun, 2024</td>
-            <td><a href="">Edit</a> <a href="">View</a> <a href="">Trash</a></td>
-          </tr>
+        {% endfor %}
         
       </table>
 

@@ -29,11 +29,6 @@ class BlogPost(models.Model):
     )
     category = models.CharField(max_length=100, choices=CATEGORY_TYPES)
     content = models.TextField()
-    twitter_link = models.CharField(max_length=100)
-    facebook_link = models.CharField(max_length=100)
-    linkedin_link = models.CharField(max_length=100)
-    normal_link = models.CharField(max_length=100)
-
 
     def __str__(self):
         return "Title: " + str(self.title)
