@@ -22,6 +22,10 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
+.not-allowed:hover {
+    cursor: not-allowed;
+}
+
 
 /* ---------------------- left menu --------------------------- */
 .left-menu {

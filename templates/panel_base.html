@@ -54,16 +54,16 @@
         <p class="left-menu-divide-p">Menu</p>
         <a href="{% url 'panel_dashboard' %}"><i class="ri-home-line"></i> Dashboard</a>
         <a href="{% url 'cms_posts_landing' %}"><i class="ri-edit-box-line"></i> Posts</a>
-        <a href="#"><i class="ri-image-line"></i> Media</a>
-        <a href="#"><i class="ri-pages-line"></i> Pages</a>
-        <a href="#"><i class="ri-chat-4-line"></i> Comments</a>
+        <a href="#" class="not-allowed"><i class="ri-image-line"></i> Media</a>
+        <a href="#" class="not-allowed"><i class="ri-pages-line"></i> Pages</a>
+        <a href="#" class="not-allowed"><i class="ri-chat-4-line"></i> Comments</a>
 
         <a href="#"><i class="ri-brush-2-line"></i> Appearance</a>
-        <a href="#"><i class="ri-plug-line"></i> Plugins</a>
-        <a href="#"><i class="ri-user-line"></i> Users</a>
+        <a href="#" class="not-allowed"><i class="ri-plug-line"></i> Plugins</a>
+        <a href="#" class="not-allowed"><i class="ri-user-line"></i> Users</a>
 
         <div class="left-menu-footer">
-            <a href="#"><i class="ri-settings-4-line"></i> Settings</a>
+            <a href="#" class="not-allowed"><i class="ri-settings-4-line"></i> Settings</a>
             <a href="{% url 'logout' %}"><i class="ri-logout-box-line"></i> Logout</a>   
         </div>
     </div>
