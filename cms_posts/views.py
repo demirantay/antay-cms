@@ -64,7 +64,9 @@ def cms_posts_create(request):
         ObjectDoesNotExist
     )
 
-    # create new post form submission
+    # make it public form
+    if request.POST.get("make_it_public_form_submit"):
+        print("make it public")
 
     # save draft form submission
 
@@ -88,7 +90,13 @@ def blog_single_view(request, post_id):
     except ObjectDoesNotExist:
         current_post = None
 
+    post_in_draft = False
+    if current_post.listing_type == "draft":
+        post_in_draft = True
+        return HttpResponseRedirect("/cms-admin/posts/")
+
     data = {
         "current_post": current_post,
+        "post_in_draft": post_in_draft,
     }
     return render(request, "cms_posts/blog_single_view.html", data)

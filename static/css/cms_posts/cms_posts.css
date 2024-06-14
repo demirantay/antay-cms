@@ -93,6 +93,14 @@
     background-color: white;
 }
 
+#listing_type_public {
+    background-color: #E9F7EF;
+}
+
+#listing_type_draft {
+    background-color: #F4ECF7;
+}
+
 #customers tr:hover {background-color: #ddd;}
 
 /* Mobile Small  --------------------------------------------------------- */

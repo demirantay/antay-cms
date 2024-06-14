@@ -1,3 +1,9 @@
+{% if post_in_draft is True %}
+    <script>
+        alert("This post is not public.")
+    </script>
+{% endif %}
+
 
 <h1>{{ current_post.title }}</h1>
 <p>{{current_post.author.full_name}}</p>
@@ -5,5 +11,7 @@
 <hr>
 
 <p>{{ current_post.content }}</p>
+
+
 
 

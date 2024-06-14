@@ -16,6 +16,7 @@
         <tr>
           <th>Title</th>
           <th>Author</th>
+          <th>Listing</th>
           <th>Categories</th>
           <th>Date</th>
           <th>Options</th>
@@ -34,16 +35,17 @@
           <tr>
             <td>{{ post.title|truncatechars:20 }}</td>
             <td>{{ post.author.full_name }}</td>
+            <td id="listing_type_public">{{ post.listing_type }}</td>
             <td>{{ post.category }}</td>
             <td>{{ post.creation_date }}</td>
             <td>
               <a href="">Edit</a> 
-              <a href="{% url 'blog_single_view' post.id %}">View</a> 
               <form method="POST" action="{% url 'cms_posts_landing' %}" onsubmit="return confirmSubmission()">
                 {% csrf_token %}
                 <input type="hidden" value="{{ post.id }}" name="hidden_id">
                 <input type="submit" value="Trash" name="delete_single_post">
               </form>
+              <a href="{% url 'blog_single_view' post.id %}">Public View</a> 
             </td>
           </tr>
         {% endfor %}

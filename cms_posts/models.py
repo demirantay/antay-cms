@@ -29,6 +29,11 @@ class BlogPost(models.Model):
     )
     category = models.CharField(max_length=100, choices=CATEGORY_TYPES)
     content = models.TextField()
+    LISTING_TYPES = (
+        ('draft', 'draft'),
+        ('public', 'public'),
+    )
+    listing_type = models.CharField(max_length=100, choices=LISTING_TYPES, default='draft')
 
     def __str__(self):
         return "Title: " + str(self.title)
