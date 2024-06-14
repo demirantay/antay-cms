@@ -29,22 +29,32 @@
           <td><a href="">Edit</a> <a href="">View</a> <a href="">Trash</a></td>
         </tr>
         -->
-       
+      
         {% for post in all_posts %}
           <tr>
             <td>{{ post.title|truncatechars:20 }}</td>
             <td>{{ post.author.full_name }}</td>
             <td>{{ post.category }}</td>
             <td>{{ post.creation_date }}</td>
-            <td><a href="">Edit</a> <a href="{% url 'blog_single_view' post.id %}">View</a> <a href="">Trash</a></td>
+            <td>
+              <a href="">Edit</a> 
+              <a href="{% url 'blog_single_view' post.id %}">View</a> 
+              <form method="POST" action="{% url 'cms_posts_landing' %}" onsubmit="return confirmSubmission()">
+                {% csrf_token %}
+                <input type="hidden" value="{{ post.id }}" name="hidden_id">
+                <input type="submit" value="Trash" name="delete_single_post">
+              </form>
+            </td>
           </tr>
         {% endfor %}
         
       </table>
-
 </div>
 
-
-
+<script>
+  function confirmSubmission() {
+      return confirm('Are you sure you want to delete?');
+  }
+</script>
 
 {% endblock %}

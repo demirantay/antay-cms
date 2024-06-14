@@ -63,6 +63,28 @@
     color: #3c81f6;
 }
 
+.cms_all_posts_wrapper table form {
+    display: inline-block;
+}
+
+.cms_all_posts_wrapper table form input {
+    border: 1px solid #3c81f6;
+    border-radius: 4px;
+    text-decoration: none;
+    text-align: center;
+    padding: 2px 8px;
+    font-size: 15px;
+    color: #3c81f6;
+    background-color: transparent;
+}   
+
+.cms_all_posts_wrapper table form input:hover {
+    color: white;
+    background-color: #3c81f6;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
 .cms_all_posts_wrapper table tr:nth-child(even) {
     background-color: #f2f2f2;
 }
