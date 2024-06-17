@@ -9,4 +9,5 @@ urlpatterns = [
     path("blog/<int:post_id>/", views.blog_single_view, name="blog_single_view"),
     
     # api calls
+    path('api/save-draft/', views.save_draft, name='save_draft'),
 ]

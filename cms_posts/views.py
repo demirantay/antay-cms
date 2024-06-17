@@ -2,10 +2,11 @@
 
 # Django Imports
 from django.shortcuts import render, get_object_or_404, HttpResponse
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, JsonResponse
 from django.core.exceptions import ObjectDoesNotExist
 from django.core.files import File
 from django.contrib.auth.models import User
+from django.views.decorators.csrf import csrf_exempt
 
 # My Module Imports
 from .models import BlogPost
@@ -64,11 +65,27 @@ def cms_posts_create(request):
         ObjectDoesNotExist
     )
 
-    # make it public form
+    # publish form
     if request.POST.get("make_it_public_form_submit"):
-        print("make it public")
+        title = request.POST.get("title")
+        content = request.POST.get("content")
+        new_post = BlogPost(
+            author=current_basic_user_profile, title=title, content=content,
+            listing_type="public"
+        )
+        new_post.save()
+        return HttpResponseRedirect("/cms-admin/posts/")
 
     # save draft form submission
+    if request.POST.get("draft_save_form_submit"):
+        title = request.POST.get("title")
+        content = request.POST.get("content")
+        new_post = BlogPost(
+            author=current_basic_user_profile, title=title, content=content,
+            listing_type="draft"
+        )
+        new_post.save()
+        return HttpResponseRedirect("/cms-admin/posts/")
 
 
     data = {
@@ -100,3 +117,22 @@ def blog_single_view(request, post_id):
         "post_in_draft": post_in_draft,
     }
     return render(request, "cms_posts/blog_single_view.html", data)
+
+
+@csrf_exempt
+def save_draft(request):
+    if request.method == 'POST':
+        title = request.POST.get('title', '')
+        content = request.POST.get('content', '')
+        user = request.user
+
+        draft, created = BlogPost.objects.get_or_create(user=user, defaults={'title': title, 'content': content})
+        if not created:
+            draft.title = title
+            draft.content = content
+            draft.last_saved = timezone.now()
+            draft.save()
+
+        return JsonResponse({'status': 'success', 'last_saved': draft.last_saved})
+
+    return JsonResponse({'status': 'failed', 'message': 'Invalid request method'})

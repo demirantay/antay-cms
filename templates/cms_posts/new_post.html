@@ -6,25 +6,61 @@
 {% endblock %}
 
 {% block content %}
+<p id="status">Draft not saved yet</p>
 
 <div class="cms_create_post_wrapper">
-    <form>
+    <form method="POST">
+        {% csrf_token %}
         <div class="post-operations">
-            <input class="publish-btn" type="submit" value="Publish">
-            <a href="" class="save_draft_btn">Save Draft</a>
+            <input class="publish-btn" type="submit" value="Publish" name="make_it_public_form_submit">
+            <input class="save_draft_btn" type="submit" value="Save Draft" name="draft_save_form_submit">
         </div>
-        
-        <input id="title-input" type="text" placeholder="Add title">
-        <textarea placeholder="Type in your post ..." oninput="auto_grow(this)"></textarea>
+
+        <input id="title-input" type="text" placeholder="Add title" name="title">
+        <textarea placeholder="Type in your post ..." oninput="auto_grow(this)" id="content" name="content"></textarea>
     </form>
 </div>
 
+
+
 <script>
+    /*
     // auto growth on scroll while writing for textarea
     function auto_grow(element) {
         element.style.height = "5px";
         element.style.height = (element.scrollHeight) + "px";
     }
+
+    // AUTO SAVE FUNCTIONALITY
+    $(document).ready(function () {
+        function saveDraft() {
+            var title = $('#title-input').val();
+            var content = $('#content').val();
+
+            $.ajax({
+                type: 'POST',
+                url: '{% url "save_draft" %}',
+                data: {
+                    'title': title,
+                    'content': content,
+                    'csrfmiddlewaretoken': '{{ csrf_token }}'
+                },
+                success: function (response) {
+                    if (response.status == 'success') {
+                        $('#status').text('Last saved at: ' + response.last_saved);
+                    }
+                }
+            });
+        }
+
+        setInterval(saveDraft, 30000); // Save every 30 seconds
+
+        $('#title, #content').on('keyup', function () {
+            clearTimeout(window.draftTimeout);
+            window.draftTimeout = setTimeout(saveDraft, 1000); // Save 1 second after the last keyup
+        });
+    });
+    */
 </script>
 
 

@@ -34,6 +34,7 @@ class BlogPost(models.Model):
         ('public', 'public'),
     )
     listing_type = models.CharField(max_length=100, choices=LISTING_TYPES, default='draft')
+    last_saved = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return "Title: " + str(self.title)

@@ -10,7 +10,7 @@
 <div class="cms_all_posts_wrapper">
     <h3>Posts</h3>
 
-    <a href="">Add New Post</a>
+    <a href="{% url 'cms_posts_create' %}">Add New Post</a>
     
     <table>
         <tr>
@@ -35,7 +35,11 @@
           <tr>
             <td>{{ post.title|truncatechars:20 }}</td>
             <td>{{ post.author.full_name }}</td>
-            <td id="listing_type_public">{{ post.listing_type }}</td>
+            {% if post.listing_type == "public" %}
+              <td id="listing_type_public">{{ post.listing_type }}</td>
+            {% elif post.listing_type == "draft" %}
+              <td id="listing_type_draft">{{ post.listing_type }}</td>
+            {% endif %}
             <td>{{ post.category }}</td>
             <td>{{ post.creation_date }}</td>
             <td>
