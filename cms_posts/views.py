@@ -51,7 +51,6 @@ def cms_posts_landing(request):
         return render(request, "cms_posts/posts_landing.html", data)
     
 
-
 def cms_posts_create(request):
     """cms panel posts create page
     """
@@ -96,6 +95,35 @@ def cms_posts_create(request):
         return HttpResponseRedirect("/auth/login/")
     else:
         return render(request, "cms_posts/new_post.html", data)
+    
+
+def cms_posts_edit(request, post_id):
+    """cms panel posts edit page
+    """
+    # Get the current users
+    current_basic_user = get_current_user(request, User, ObjectDoesNotExist)
+
+    current_basic_user_profile = get_current_user_profile(
+        request,
+        User,
+        BasicUserProfile,
+        ObjectDoesNotExist
+    )
+
+    # get the current post
+
+    # edit form
+
+
+    data = {
+        'current_basic_user': current_basic_user,
+        'current_basic_user_profile': current_basic_user_profile,
+    }
+    if current_basic_user == None:
+        return HttpResponseRedirect("/auth/login/")
+    else:
+        return render(request, "cms_posts/edit_post.html", data)
+    
     
 
 def blog_single_view(request, post_id):

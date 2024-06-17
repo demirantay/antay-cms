@@ -43,7 +43,7 @@
             <td>{{ post.category }}</td>
             <td>{{ post.creation_date }}</td>
             <td>
-              <a href="">Edit</a> 
+              <a href="{% url 'cms_posts_edit' post.id %}">Edit</a> 
               <form method="POST" action="{% url 'cms_posts_landing' %}" onsubmit="return confirmSubmission()">
                 {% csrf_token %}
                 <input type="hidden" value="{{ post.id }}" name="hidden_id">
