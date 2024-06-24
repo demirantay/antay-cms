@@ -17,51 +17,29 @@
         </div>
 
         <input id="title-input" type="text" placeholder="Add title" name="title">
-        <textarea placeholder="Type in your post ..." oninput="auto_grow(this)" id="content" name="content"></textarea>
+        <textarea placeholder="Type in your post ..." id="auto-resize" rows="1" name="content">{{ current_post.content }}</textarea>
     </form>
 </div>
 
 
 
 <script>
-    
-    // auto growth on scroll while writing for textarea
-    function auto_grow(element) {
-        element.style.height = "5px";
-        element.style.height = (element.scrollHeight) + "px";
+    function resizeTextarea(textarea) {
+        textarea.style.height = 'auto'; // Reset the height
+        textarea.style.height = textarea.scrollHeight + 'px'; // Set the height to match the content
     }
 
-    /*
-    // AUTO SAVE FUNCTIONALITY
-    $(document).ready(function () {
-        function saveDraft() {
-            var title = $('#title-input').val();
-            var content = $('#content').val();
+    document.addEventListener('DOMContentLoaded', function () {
+        const textarea = document.getElementById('auto-resize');
 
-            $.ajax({
-                type: 'POST',
-                url: '{% url "save_draft" %}',
-                data: {
-                    'title': title,
-                    'content': content,
-                    'csrfmiddlewaretoken': '{{ csrf_token }}'
-                },
-                success: function (response) {
-                    if (response.status == 'success') {
-                        $('#status').text('Last saved at: ' + response.last_saved);
-                    }
-                }
-            });
-        }
+        // Resize on page load
+        resizeTextarea(textarea);
 
-        setInterval(saveDraft, 30000); // Save every 30 seconds
-
-        $('#title, #content').on('keyup', function () {
-            clearTimeout(window.draftTimeout);
-            window.draftTimeout = setTimeout(saveDraft, 1000); // Save 1 second after the last keyup
+        // Resize on input event
+        textarea.addEventListener('input', function () {
+            resizeTextarea(textarea);
         });
     });
-    */
 </script>
 
 
