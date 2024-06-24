@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'home',
     'cms_panel',
     'cms_posts',
+    'cms_themes',
 ]
 
 MIDDLEWARE = [
