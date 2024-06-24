@@ -1,1 +1,39 @@
-a
+{% extends 'panel_base.html' %}
+{% load static %}
+
+{% block css_link %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/cms_posts/new_post.css' %}" />
+{% endblock %}
+
+{% block content %}
+<p id="status">Draft not saved yet</p>
+
+<div class="cms_create_post_wrapper">
+    <form method="POST" action="{% url 'cms_posts_edit' current_post.id %}">
+        {% csrf_token %}
+        <div class="post-operations">
+            <input class="publish-btn" type="submit" value="Publish" name="make_it_public_form_submit_edit">
+            <input class="save_draft_btn" type="submit" value="Save Draft" name="draft_save_form_submit_edit">
+        </div>
+
+        <input id="title-input" type="text" placeholder="Add title" name="title" value="{{ current_post.title }}">
+        <textarea placeholder="Type in your post ..." oninput="auto_grow(this)" id="content" name="content">{{ current_post.content }}</textarea>
+    </form>
+</div>
+
+
+
+<script>
+    
+    // auto growth on scroll while writing for textarea
+    function auto_grow(element) {
+        //element.style.height = "auto";
+        //element.style.height = (element.scrollHeight) + "px";
+        element.style.height = "1px";
+        element.style.height = (25+element.scrollHeight)+"px";
+    }
+
+</script>
+
+
+{% endblock %}

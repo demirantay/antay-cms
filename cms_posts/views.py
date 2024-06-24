@@ -111,13 +111,35 @@ def cms_posts_edit(request, post_id):
     )
 
     # get the current post
+    try:
+        current_post = BlogPost.objects.get(id=post_id)
+    except ObjectDoesNotExist:
+        current_post = None
 
     # edit form
+    if request.POST.get("make_it_public_form_submit_edit"):
+        new_title = request.POST.get("title")
+        new_content = request.POST.get("content")
+        current_post.title = new_title
+        current_post.content = new_content
+        current_post.listing_type = "public"
+        current_post.save()
+        return HttpResponseRedirect("/cms-admin/posts/")
 
+    # save draft form submission
+    if request.POST.get("draft_save_form_submit_edit"):
+        new_title = request.POST.get("title")
+        new_content = request.POST.get("content")
+        current_post.title = new_title
+        current_post.content = new_content
+        current_post.listing_type = "draft"
+        current_post.save()
+        return HttpResponseRedirect("/cms-admin/posts/")
 
     data = {
         'current_basic_user': current_basic_user,
         'current_basic_user_profile': current_basic_user_profile,
+        'current_post': current_post,
     }
     if current_basic_user == None:
         return HttpResponseRedirect("/auth/login/")
