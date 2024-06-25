@@ -3,7 +3,7 @@ from . import views
 
 urlpatterns = [
     # normal views
-    path("", views.index, name="index"),
+    path("404/", views.index, name="index"),
     
     # api calls
 ]
